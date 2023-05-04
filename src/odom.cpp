@@ -18,7 +18,7 @@ void Odometry::Tick() {
     float deltaY = c_InchesPerRev * (deltaLeft + deltaRight) / 2;
 
     float theta = m_Result.angle + deltaTheta / 2;
-    m_Result.position.x += std::cos(theta) * deltaX - std::sin(deltaY);
-    m_Result.position.y += std::sin(theta) * deltaX + std::cos(deltaY);
+    m_Result.position.x += std::cos(theta) * deltaX - std::sin(theta) * deltaY;
+    m_Result.position.y += std::sin(theta) * deltaX + std::cos(theta) * deltaY;
     m_Result.angle += deltaTheta;
 }
